@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Bienvenida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 72%; /* Reducción del 10% del 80% original */
+            max-width: 900px; /* Reducción del 10% del 1000px original */
+            height: auto;
+            margin: 0 14%; /* Ajuste para centrar el contenedor */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        .buttons a:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 81%; /* Ajuste proporcional para pantallas medianas */
+                margin: 0 9.5%; /* Ajuste proporcional para centrar */
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 90%; /* Ajuste proporcional para pantallas pequeñas */
+                margin: 0 5%; /* Ajuste proporcional para centrar */
+                padding: 10px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .buttons a {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido</h1>
+        <img src="imagen.png" alt="Nombre de la imagen">
+        <p>Alumno - Castro Carpio Alan</p>
+        <p>Grupo - 3601</p>
+        <p>Docente - María Teresa Cruz Gordillo</pa>
+        <div class="buttons">
+            <a href="grafica.html">Gráfica 1</a>
+            <a href="grafica2.html">Gráfica 2</a>
+        </div>
+    </div>
+</body>
+</html>
+

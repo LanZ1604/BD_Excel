@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gráfica de Estudios 1</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script>
+        // Realizar la solicitud AJAX para obtener los datos desde el archivo PHP
+        fetch('grafica.php')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
+
+                var fechas = data.fechas;
+                var ied = data.ied;
+                var fbcf = data.fbcf;
+                var porcentajes = data.porcentajes;
+
+                console.log("Fechas: ", fechas);
+                console.log("IED: ", ied);
+                console.log("FBCF: ", fbcf);
+                console.log("Porcentajes: ", porcentajes);
+
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: fechas,
+                        datasets: [{
+                            label: 'IED',
+                            data: ied,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'FBCF',
+                            data: fbcf,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Porcentaje',
+                            data: porcentajes,
+                            backgroundColor: 'rgba(255, 0, 0, 0.2)',
+                            borderColor: 'rgba(255, 0, 0, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Años'
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Valores'
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
